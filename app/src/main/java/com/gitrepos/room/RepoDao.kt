@@ -9,12 +9,12 @@ interface RepoDao {
     // your queries here
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addRepos(store: List<ListEntity>)
+    suspend fun addRepos(store: List<ListEntity>)
 
     @Query("select * from repoTable")
-    fun getRepos(): List<ListEntity>
+    suspend fun getRepos(): List<ListEntity>
 
     @Query("delete from repoTable")
-    fun clearRepoTable()
+    suspend fun clearRepoTable()
 
 }

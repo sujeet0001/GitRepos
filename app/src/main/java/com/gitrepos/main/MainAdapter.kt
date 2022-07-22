@@ -9,7 +9,7 @@ import com.gitrepos.databinding.ItemListBinding
 import com.gitrepos.domain.main.entity.ListEntity
 import com.squareup.picasso.Picasso
 
-class MainAdapter(private val listItems: ArrayList<ListEntity>):
+class MainAdapter(private val listItems: List<ListEntity>):
     RecyclerView.Adapter<MainAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
