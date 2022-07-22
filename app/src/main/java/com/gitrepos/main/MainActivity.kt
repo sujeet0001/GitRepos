@@ -53,6 +53,7 @@ class MainActivity : DaggerAppCompatActivity() {
     private fun setListeners(){
         binding.errorLayout.btnRetry.setOnClickListener {
             binding.errorLayout.root.visibility = View.GONE
+            viewModel.getRepos("oktokit")
         }
     }
 
