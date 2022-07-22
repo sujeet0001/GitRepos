@@ -65,6 +65,7 @@ class MainViewModel @Inject constructor(
         preferences.setString("date", convertDateToString(Date()))
 
         viewModelScope.launch {
+            repoDao.clearRepoTable()
             repoDao.addRepos(list)
         }
 

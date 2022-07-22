@@ -15,8 +15,6 @@ import javax.inject.Singleton
 )
 interface ApplicationComponent {
 
-    fun getSharedPreference(): SharedPreferences
-
     @Component.Factory
     interface Factory{
         fun create(@BindsInstance context: Context) : ApplicationComponent
