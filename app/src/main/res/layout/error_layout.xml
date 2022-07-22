@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_sub"
+            android:text="@string/something_went_wrong"
+            android:textSize="@dimen/t15"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/d10"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/d20"
+            android:layout_marginTop="@dimen/d20"
+            android:layout_marginEnd="@dimen/d20"
+            android:layout_marginBottom="@dimen/d20"
+            android:background="@drawable/green_button"
+            android:text="@string/retry"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</layout>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/d10">
+
+        <ImageView
+            android:layout_width="@dimen/d60"
+            android:layout_height="@dimen/d60"
+            android:id="@+id/iv_avatar"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_marginTop="@dimen/d10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/vw_separator"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/d10"
+            android:textSize="@dimen/t13"
+            app:layout_constraintBottom_toTopOf="@+id/tv_sub"
+            app:layout_constraintStart_toEndOf="@id/iv_avatar"
+            app:layout_constraintTop_toTopOf="@id/iv_avatar"
+            tools:text="Title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_sub"
+            tools:text="Sub"
+            android:textSize="@dimen/t15"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/d10"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
+            app:layout_constraintStart_toEndOf="@id/iv_avatar"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d1"
+            android:id="@+id/vw_separator"
+            android:background="@color/black"
+            android:layout_marginTop="@dimen/d10"
+            app:layout_constraintTop_toBottomOf="@id/iv_avatar"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

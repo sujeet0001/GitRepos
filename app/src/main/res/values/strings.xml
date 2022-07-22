@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GitRepos</string>
+    <string name="retry">RETRY</string>
+    <string name="something_went_wrong">Something went wrong..</string>
+</resources>
