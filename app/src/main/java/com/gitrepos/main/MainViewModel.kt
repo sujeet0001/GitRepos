@@ -55,7 +55,7 @@ class MainViewModel @Inject constructor(
         compositeDisposable.add(
             listItemsUseCase.execute(name)
                 .applyIoToMainSchedulerOnSingle()
-                .subscribeToSingle(this::onSuccess, this::onErrorKYCData)
+                .subscribeToSingle(this::onSuccess, this::onError)
         )
         listItemsUseCase.execute(name)
     }
@@ -73,7 +73,7 @@ class MainViewModel @Inject constructor(
         _listEntity.value = APIResult.loading(false)
     }
 
-    private fun onErrorKYCData(e: Throwable) {
+    private fun onError(e: Throwable) {
         _listEntity.value = APIResult.apiError(e)
         _listEntity.value = APIResult.loading(false)
     }
