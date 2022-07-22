@@ -1,7 +1,12 @@
 package com.gitrepos.injection
 
+import android.app.Application
 import android.content.Context
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import androidx.room.Room
+import com.gitrepos.preferences.PreferenceImplementation
+import com.gitrepos.preferences.Preferences
 import com.gitrepos.room.RepoDB
 import com.gitrepos.utils.ApplicationContext
 import dagger.Module
@@ -33,4 +38,13 @@ class ApplicationModule {
             .fallbackToDestructiveMigration() // get correct db version if schema changed
             .build()
     }
+
+    @Provides
+    @Singleton
+    fun providePreferences(application: Application) = application.getSharedPreferences("RepoPrefs", Context.MODE_PRIVATE);
+
+    @Provides
+    @Singleton
+    fun provideUserPreferences(sharedPreferences: SharedPreferences): Preferences =
+        PreferenceImplementation(sharedPreferences)
 }

@@ -29,10 +29,15 @@ class MainActivity : DaggerAppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = viewModelProvider(viewModelFactory)
 
+        setViews()
         setLayoutManager()
         setListeners()
         setObservers()
 
+    }
+
+    private fun setViews(){
+        binding.toolbar.tvHeader.text = "Repositories"
     }
 
     private fun setLayoutManager(){
