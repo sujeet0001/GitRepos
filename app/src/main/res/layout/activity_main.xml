@@ -18,11 +18,6 @@
             tools:listitem="@layout/item_list"
             android:visibility="gone"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="bfshgfshgf"/>
-
         <include layout="@layout/error_layout"
             android:id="@+id/error_layout"
             android:visibility="gone"/>

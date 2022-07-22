@@ -1,0 +1,22 @@
+package com.gitrepos.room
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.gitrepos.domain.main.entity.ListEntity
+import com.gitrepos.room.typeconvertor.ConvertListEntity
+
+@Database(entities = [ListEntity::class], version = 1, exportSchema = false)
+
+@TypeConverters(
+        ConvertListEntity::class
+)
+
+abstract class RepoDB : RoomDatabase() {
+    companion object {
+        const val DATABASE_NAME: String = "repo_db"
+    }
+
+    abstract fun getRepoDao(): RepoDao
+
+}

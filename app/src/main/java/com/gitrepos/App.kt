@@ -2,11 +2,12 @@ package com.gitrepos
 
 import android.app.Application
 import com.gitrepos.injection.ApplicationComponent
+import com.gitrepos.injection.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
-class App: Application(), HasAndroidInjector  {
+class App: Application(){
 
     @Inject
     lateinit var appComponent: ApplicationComponent
@@ -14,12 +15,8 @@ class App: Application(), HasAndroidInjector  {
     override fun onCreate() {
         super.onCreate()
 
+        appComponent = DaggerApplicationComponent.factory().create(this)
 
-
-    }
-
-    override fun androidInjector(): AndroidInjector<Any> {
-        TODO("Not yet implemented")
     }
 
 
