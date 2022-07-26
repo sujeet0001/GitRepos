@@ -25,8 +25,8 @@ abstract class MainActivityModule {
     @Module
     object MainActivityProviderModule {
         @Provides
-        @JvmStatic
-        internal fun bindKYCService(retrofit: Retrofit): MainActivityService {
+        @PerActivity
+        internal fun bindMainActivityService(retrofit: Retrofit): MainActivityService {
             return retrofit.create(MainActivityService::class.java)
         }
     }

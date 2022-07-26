@@ -15,9 +15,6 @@ import com.gitrepos.room.typeconvertor.ConvertOwner
 )
 
 abstract class RepoDB : RoomDatabase() {
-    companion object {
-        const val DATABASE_NAME: String = "repo_db"
-    }
 
     abstract fun getRepoDao(): RepoDao
 

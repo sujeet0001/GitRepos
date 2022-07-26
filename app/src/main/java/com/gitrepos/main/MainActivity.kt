@@ -36,28 +36,28 @@ class MainActivity : DaggerAppCompatActivity() {
 
     }
 
-    private fun setViews(){
+    private fun setViews() {
         binding.toolbar.tvHeader.text = "Repositories"
     }
 
-    private fun setLayoutManager(){
+    private fun setLayoutManager() {
         binding.lvList.setHasFixedSize(true)
         binding.lvList.layoutManager = LinearLayoutManager(applicationContext)
     }
 
-    private fun setListAdapter(list: List<ListEntity>){
+    private fun setListAdapter(list: List<ListEntity>) {
         mainAdapter = MainAdapter(list)
         binding.lvList.adapter = mainAdapter
     }
 
-    private fun setListeners(){
+    private fun setListeners() {
         binding.errorLayout.btnRetry.setOnClickListener {
             binding.errorLayout.root.visibility = View.GONE
             viewModel.getRepos("oktokit")
         }
     }
 
-    private fun setObservers(){
+    private fun setObservers() {
 
         viewModel.listEntity.observeEvent(
             this, this::onSuccess, this::onFailure,
@@ -67,11 +67,11 @@ class MainActivity : DaggerAppCompatActivity() {
     }
 
     private fun onSuccess(list: List<ListEntity>) {
-
-        if(list.isNotEmpty()){
+        if (list.isNotEmpty()) {
             setListAdapter(list)
+            binding.lvList.visibility = View.VISIBLE
         } else {
-            Log.d("TAG","No repositories found")
+            Log.d("mydata", "No repositories found")
         }
 
     }
@@ -81,7 +81,7 @@ class MainActivity : DaggerAppCompatActivity() {
     }
 
     private fun onLoading(bool: Boolean) {
-        if(bool){
+        if (bool) {
             binding.pbLoader.visibility = View.VISIBLE
         } else {
             binding.pbLoader.visibility = View.GONE

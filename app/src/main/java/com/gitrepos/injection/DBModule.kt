@@ -7,9 +7,8 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-object DBModule {
+class DBModule {
     @Provides
-    @JvmStatic
     @Singleton
     internal fun bindRepoDao(repoDB: RepoDB): RepoDao {
         return repoDB.getRepoDao()

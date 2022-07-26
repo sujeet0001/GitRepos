@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/PRASH/AndroidStudioProjects/GitRepos/app/src/main/res/drawable/green_button.xml" value="0.13" />
+        <entry key="..\:/Users/PRASH/AndroidStudioProjects/GitRepos/app/src/main/res/layout/activity_detail.xml" value="0.2" />
         <entry key="..\:/Users/PRASH/AndroidStudioProjects/GitRepos/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/Users/PRASH/AndroidStudioProjects/GitRepos/app/src/main/res/layout/error_layout.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/PRASH/AndroidStudioProjects/GitRepos/app/src/main/res/layout/header.xml" value="0.25" />
         <entry key="..\:/Users/PRASH/AndroidStudioProjects/GitRepos/app/src/main/res/layout/item_list.xml" value="0.25" />
       </map>
     </option>

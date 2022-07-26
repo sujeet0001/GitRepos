@@ -2,6 +2,7 @@ package com.gitrepos.main
 
 import android.annotation.SuppressLint
 import android.text.BoringLayout
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -35,11 +36,9 @@ class MainViewModel @Inject constructor(
 
 
     init {
-
         if(isMoreThan2Hrs()){
             getRepos("octokit")
         } else {
-
             viewModelScope.launch {
                 _listEntity.value = APIResult.success(repoDao.getRepos())
                 _listEntity.value = APIResult.loading(false)
@@ -62,6 +61,9 @@ class MainViewModel @Inject constructor(
 
     private fun onSuccess(list: List<ListEntity>) {
 
+        _listEntity.value = APIResult.success(list)
+        _listEntity.value = APIResult.loading(false)
+
         preferences.setString("date", convertDateToString(Date()))
 
         viewModelScope.launch {
@@ -69,8 +71,7 @@ class MainViewModel @Inject constructor(
             repoDao.addRepos(list)
         }
 
-        _listEntity.value = APIResult.success(list)
-        _listEntity.value = APIResult.loading(false)
+
     }
 
     private fun onError(e: Throwable) {
@@ -99,17 +100,18 @@ class MainViewModel @Inject constructor(
     @SuppressLint("SimpleDateFormat")
     fun convertStringToDate(str: String): Date? {
         val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
-        try {
-            return format.parse(str)
+        return try {
+            format.parse(str)
         } catch (e: ParseException) {
             e.printStackTrace()
+            Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24))
         }
-        return Date()
     }
 
     private fun isMoreThan2Hrs(): Boolean {
 
         val diff: Long = Date().time - convertStringToDate(preferences.getString("date"))!!.time
+
         val seconds = diff / 1000
         val minutes = seconds / 60
         val hours = minutes / 60

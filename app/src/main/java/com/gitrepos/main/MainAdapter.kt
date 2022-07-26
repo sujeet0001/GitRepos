@@ -1,5 +1,6 @@
 package com.gitrepos.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -22,10 +23,9 @@ class MainAdapter(private val listItems: List<ListEntity>):
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-
         val listEntity: ListEntity = listItems[position]
-        holder.b.tvTitle.text = listEntity.name
-        holder.b.tvSub.text = listEntity.owner!!.login
+        holder.b.tvTitle.text = listEntity.owner!!.login
+        holder.b.tvSub.text = listEntity.name
         Picasso.get().load(listEntity.owner.avatar_url).into(holder.b.ivAvatar)
 
     }
@@ -36,6 +36,7 @@ class MainAdapter(private val listItems: List<ListEntity>):
 
     class MainHolder(binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
         val b: ItemListBinding = binding
+
     }
 
 }
